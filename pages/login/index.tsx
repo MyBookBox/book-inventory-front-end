@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
@@ -9,17 +8,20 @@ import PrimaryButton from "../../src/components/primary-button";
 import {ArrowRight} from "lucide-react";
 import TextInput from "../../src/components/text-input";
 import {Button} from "../../src/components/ui/button";
+import {post} from "../../src/service/request";
+import {storeToken, storeUser} from "../../src/shared/utils/stroge-util";
+import {toast} from "react-toastify";
 
 const loginSchema = z.object({
     email: z.string().email("Please enter a valid email."),
-    password: z.string().min(6, "Password must be at least 6 characters."),
+    password: z.string().min(8, "Password must be at least 8 characters.").max(20, "Password must be less than 8 characters"),
 });
 
 type LoginForm = z.infer<typeof loginSchema>;
 
 const Login = () => {
     const router = useRouter();
-
+    const [isLoading, setIsLoading] = useState(false)
     const {
         register,
         handleSubmit,
@@ -28,11 +30,28 @@ const Login = () => {
         resolver: zodResolver(loginSchema),
     });
 
-    const onSubmit = (data: LoginForm) => {
-        console.log("Form Data:", data);
-        localStorage.setItem("authToken", "abcd");
-        router.push("/home");
+    const onSubmit = async (data: LoginForm) => {
+        try {
+            setIsLoading(true);
+            const response = await post('user/signin', data)
+            storeToken(response['accessToken'])
+            storeUser(response['user'])
+            toast.success("Successfully Login")
+            router.push("/home");
+        } catch (e) {
+            toast.error(e)
+        } finally {
+            setIsLoading(false);
+        }
     };
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            router.push('/home');
+        }
+    }, []);
 
     return (
         <div className="flex">
@@ -73,7 +92,7 @@ const Login = () => {
                         </div>
                         <PrimaryButton
                             label="Login"
-                            loading={false}
+                            loading={isLoading}
                             icon={<ArrowRight/>}
                             additionalStyles="mb-8 mt-4"
                             type="submit"

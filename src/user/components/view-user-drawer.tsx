@@ -1,7 +1,10 @@
 import DrawerWrapper from "@/src/components/drawer-wrapper";
 import {Ellipsis} from "lucide-react";
 
-const ViewUserDrawer = () => {
+type Props = {
+    user: any;
+};
+const ViewUserDrawer = ({user}: Props) => {
     return (
         <DrawerWrapper
             trigger={<Ellipsis className='cursor-pointer mx-2 hover:text-purple-900'/>}
@@ -16,24 +19,28 @@ const ViewUserDrawer = () => {
                 <table>
                     <tr>
                         <td className='text-sm text-gray-600 py-2'>User Full name</td>
-                        <td className='text-sm text-gray-900 ps-16'>Dilani Karthigesu</td>
+                        <td className='text-sm text-gray-900 ps-16'>{user['name']}</td>
                     </tr>
                     <tr>
                         <td className='text-sm text-gray-600 py-2'>User Email</td>
-                        <td className='text-sm text-gray-900 ps-16'>dilani@gmail.com</td>
+                        <td className='text-sm text-gray-900 ps-16'>{user['email']}</td>
                     </tr>
                     <tr>
                         <td className='text-sm text-gray-600 py-2'>User Role</td>
-                        <td className='text-sm text-gray-900 ps-16'>Admin</td>
+                        <td className='text-sm text-gray-900 ps-16'>{user['role']}</td>
                     </tr>
                     <tr>
                         <td className='text-sm text-gray-600 py-2'>User Status</td>
                         <td className='text-sm text-gray-900 ps-16'>
                             <div
-                                key="status-2"
-                                className="bg-red-100 w-28 text-center text-red-900 rounded-full p-2"
+                                key={`status-2`}
+                                className={`w-28 text-center rounded-full p-2 ${
+                                    user.status === "Active"
+                                        ? "bg-purple-100 text-purple-900"
+                                        : "bg-red-100 text-red-900"
+                                }`}
                             >
-                                Deleted
+                                {user.status}
                             </div>
                         </td>
                     </tr>

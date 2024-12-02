@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import TextInput from "../../src/components/text-input";
@@ -8,6 +8,8 @@ import {ArrowRight} from "lucide-react";
 import {Button} from "../../src/components/ui/button";
 import {useRouter} from "next/navigation";
 import {z} from "zod";
+import {post} from "../../src/service/request";
+import {toast} from "react-toastify";
 
 const signupSchema = z.object({
     firstName: z.string().min(4, "First Name must be at least 4 characters").nonempty("First Name is required"),
@@ -17,9 +19,10 @@ const signupSchema = z.object({
 });
 
 type SignupFormValues = z.infer<typeof signupSchema>;
+
 const Signup = () => {
     const router = useRouter();
-
+    const [isLoading, setIsLoading] = useState(false)
     const {
         register,
         handleSubmit,
@@ -28,9 +31,31 @@ const Signup = () => {
         resolver: zodResolver(signupSchema),
     });
 
-    const onSubmit = (data: SignupFormValues) => {
-        console.log("Form submitted with values:", data);
+    const onSubmit = async (data: SignupFormValues) => {
+        try {
+            const request = {
+                name: `${data['firstName']} ${data['lastName']}`,
+                email: data['email'],
+                password: data['password']
+            }
+            setIsLoading(true);
+            const response = await post('user/signup', request)
+            toast.success("Successfully completed registration")
+            router.push("/login");
+        } catch (e) {
+            toast.error(e)
+        } finally {
+            setIsLoading(false);
+        }
     };
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            router.push('/home');
+        }
+    }, []);
 
     return (
         <div className="flex">
@@ -81,7 +106,7 @@ const Signup = () => {
                         />
                         <PrimaryButton
                             label="Create an Account"
-                            loading={false}
+                            loading={isLoading}
                             icon={<ArrowRight/>}
                             additionalStyles="my-8"
                         />

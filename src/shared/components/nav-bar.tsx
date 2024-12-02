@@ -1,11 +1,26 @@
 import Link from "next/link";
 import SecondaryButton from "@/src/components/secondary-button";
 import {House, LibraryBig, LogOut, UserRoundPen, Users} from "lucide-react";
-import {useRouter, usePathname} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
+import {getUser, removeStorage} from "@/src/shared/utils/stroge-util";
 
 const NavBar = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const user = getUser()
+
+    const getMenuItems = (userRole: string) => {
+        const menuItems = [
+            {label: 'Home', path: '/home', icon: <House/>},
+            {label: 'Book', path: '/book', icon: <LibraryBig/>},
+            {label: 'Profile', path: '/profile', icon: <UserRoundPen/>},
+        ];
+
+        if (userRole.includes('Admin')) {
+            menuItems.push({label: 'User', path: '/user', icon: <Users/>});
+        }
+        return menuItems;
+    };
     return (
         <nav className="w-64 h-screen shadow-2xl text-white p-4">
             <Link href="#">
@@ -19,12 +34,7 @@ const NavBar = () => {
                 />
             </Link>
             <ul className="space-y-4 mt-12">
-                {[
-                    {label: 'Home', path: '/home', icon: <House/>},
-                    {label: 'Book', path: '/book', icon: <LibraryBig/>},
-                    {label: 'User', path: '/user', icon: <Users/>},
-                    {label: 'Profile', path: '/profile', icon: <UserRoundPen/>},
-                ].map((item) => (
+                {getMenuItems(user? user['role']: [] ).map((item) => (
                     <li key={item.path}>
                         <Link href={item.path}>
                             <SecondaryButton
@@ -46,7 +56,7 @@ const NavBar = () => {
                             label="Logout"
                             icon={<LogOut/>}
                             onClick={() => {
-                                localStorage.setItem('authToken', '')
+                                removeStorage()
                                 router.push('/login');
                             }}
                         />

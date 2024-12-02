@@ -5,39 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a824f663-debd-4683-8dd4-70653bc4944f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/book/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/profile/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/user/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/book/components/delete-book.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/book/components/edit-book.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/book/components/view-book-drawer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TableWrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/alert-dialog-wrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/dialog-wrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/drawer-wrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary-button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/select-wrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/alert-dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/avatar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/drawer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/select.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user/components/delete-user.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user/components/edit-user.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user/components/view-user-drawer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/search-bar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/utils/stroge-util.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/profile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/signup/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/signup/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/book/components/delete-book.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/book/components/delete-book.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/book/components/edit-book.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/book/components/edit-book.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/book/components/view-book-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/book/components/view-book-drawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dialog-wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/select-wrapper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/text-input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text-input.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/components/nav-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/nav-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/components/delete-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/components/delete-user.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/components/edit-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/components/edit-user.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/components/view-user-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/components/view-user-drawer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +39,7 @@
       <list>
         <option value="CSS File" />
         <option value="tsconfig.json" />
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -67,24 +58,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/dilani/projects/BookInventory/book-inventory-front-end/pages",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "ts.external.directory.path": "/home/dilani/projects/BookInventory/book-inventory-front-end/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dilani/projects/BookInventory/book-inventory-front-end/src/service&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/dilani/projects/BookInventory/book-inventory-front-end/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/service" />
+      <recent name="$PROJECT_DIR$/src/shared/utils" />
       <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/src/pages" />
@@ -107,7 +100,13 @@
       <updated>1732378419068</updated>
       <workItem from="1732378420140" duration="987000" />
       <workItem from="1732379452089" duration="4857000" />
-      <workItem from="1732418440793" duration="24565000" />
+      <workItem from="1732418440793" duration="25946000" />
+      <workItem from="1732505038017" duration="603000" />
+      <workItem from="1732621335864" duration="10817000" />
+      <workItem from="1732770069930" duration="9146000" />
+      <workItem from="1732793706057" duration="2656000" />
+      <workItem from="1732970676283" duration="3945000" />
+      <workItem from="1733108309411" duration="452000" />
     </task>
     <servers />
   </component>

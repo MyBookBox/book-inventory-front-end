@@ -1,8 +1,15 @@
 "use client";
 
 import React from "react";
-import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue,} from "./ui/select";
-import {cn} from "./utils";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "./ui/select";
+import { cn } from "./utils";
 
 interface Option {
     value: string;
@@ -18,6 +25,7 @@ interface SelectWrapperProps {
     onChange?: (value: string) => void;
     value?: string;
     additionalStyles?: string;
+    error?: string; // Optional error message
 }
 
 const SelectWrapper: React.FC<SelectWrapperProps> = ({
@@ -29,18 +37,27 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({
                                                          onChange,
                                                          value,
                                                          additionalStyles,
+                                                         error,
                                                      }) => {
+    const uniqueId = React.useId(); // Generate a unique ID for accessibility
+
     return (
-        <div className={cn("flex flex-col space-y-2",wrapperStyles)}>
-            {label && <label className="text-sm">{label}</label>}
+        <div className={cn("flex flex-col space-y-2", wrapperStyles)}>
+            {label && (
+                <label htmlFor={uniqueId} className="text-sm">
+                    {label}
+                </label>
+            )}
             <Select
-                onValueChange={onChange}
+                onValueChange={(selectedValue) => onChange?.(selectedValue)}
                 disabled={disabled}
-                value={value}
+                value={value || undefined} // Ensure undefined when no value is passed
             >
                 <SelectTrigger
+                    id={uniqueId}
                     className={cn(
                         "border border-purple-300 focus:border-purple-600 rounded-md",
+                        error ? "border-red-500 focus:border-red-600" : "",
                         additionalStyles
                     )}
                 >
@@ -56,6 +73,7 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({
                     </SelectGroup>
                 </SelectContent>
             </Select>
+            {error && <p className="text-red-500 text-sm">{error}</p>}
         </div>
     );
 };

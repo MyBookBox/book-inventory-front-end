@@ -8,7 +8,7 @@ interface Props {
     disabled?: boolean;
     additionalStyles?: string;
     wrapperStyles?: string;
-    type?: string;
+    type?: string; // Type is optional for flexibility
     placeholder?: string;
     icon?: React.ReactNode;
     error?: string;
@@ -21,7 +21,7 @@ const TextInput = forwardRef<HTMLInputElement, Props>(
             disabled,
             additionalStyles,
             wrapperStyles,
-            type,
+            type = "text", // Default to text type
             placeholder,
             icon,
             error,

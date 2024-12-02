@@ -6,41 +6,50 @@ import {
     DialogTrigger,
     DialogContent,
     DialogHeader,
-    DialogFooter,
     DialogTitle,
     DialogDescription,
+    DialogFooter,
     DialogClose,
 } from "./ui/dialog";
 import {cn} from "./utils";
 
 interface DialogWrapperProps {
-    trigger: React.ReactNode;
-    title?: string;
+    isOpen: boolean;
+    onClose: () => void;
+    title: string;
     description?: string;
     children: React.ReactNode;
     footer?: React.ReactNode;
     className?: string;
 }
 
-const DialogWrapper: React.FC<DialogWrapperProps> = ({
-                                                         trigger,
-                                                         title,
-                                                         description,
-                                                         children,
-                                                         footer,
-                                                         className,
-                                                     }) => {
+export const DialogWrapper: React.FC<DialogWrapperProps> = ({
+                                                                isOpen,
+                                                                onClose,
+                                                                title,
+                                                                description,
+                                                                children,
+                                                                footer,
+                                                                className,
+                                                            }) => {
+
     return (
-        <Dialog>
-            <DialogTrigger asChild>{trigger}</DialogTrigger>
-            <DialogContent className={cn("max-w-xl", className)}>
+        <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+            <DialogContent className={cn("max-w-2xl", className)}>
                 <DialogHeader>
-                    {title && <DialogTitle>{title}</DialogTitle>}
-                    {description && <DialogDescription className="pt-2">{description}</DialogDescription>}
+                    <DialogTitle className="text-lg font-semibold">{title}</DialogTitle>
+                    {description && (
+                        <DialogDescription className="text-sm text-gray-600">
+                            {description}
+                        </DialogDescription>
+                    )}
                 </DialogHeader>
-                <div className="p-4">{children}</div>
+                <div className="py-4">{children}</div>
                 {footer && <DialogFooter>{footer}</DialogFooter>}
-                <DialogClose className="absolute top-4 right-4">
+                <DialogClose
+                    className="absolute top-4 right-4"
+                    onClick={onClose}
+                >
                     <span className="sr-only">Close</span>
                 </DialogClose>
             </DialogContent>

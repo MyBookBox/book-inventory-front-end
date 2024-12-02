@@ -1,9 +1,17 @@
 import {FileX} from "lucide-react";
 import AlertDialogWrapper from "@/src/components/alert-dialog-wrapper";
 
-const DeleteBook = () => {
-    const handleConfirm = () => {
-        console.log("Confirmed!");
+type Props = {
+    book: any;
+    handleBookDelete: (user: any) => void;
+};
+const DeleteBook = ({book, handleBookDelete}: Props) => {
+    const handleConfirm = async () => {
+        try {
+            await handleBookDelete(book);
+        } catch (error) {
+            console.error("Error during book deletion:", error);
+        }
     };
 
     const handleCancel = () => {
@@ -11,7 +19,7 @@ const DeleteBook = () => {
     };
     return (
         <AlertDialogWrapper
-            trigger={ <FileX className='cursor-pointer mx-2 hover:text-purple-900'/>}
+            trigger={<FileX className='cursor-pointer mx-2 hover:text-purple-900'/>}
             title="Delete Confirmation"
             description="Are you sure you want to delete this book?  This action cannot be undone."
             confirmLabel="Delete"
