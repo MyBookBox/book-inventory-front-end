@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a824f663-debd-4683-8dd4-70653bc4944f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/search-bar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/request.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/utils/stroge-util.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/profile/index.tsx" afterDir="false" />
@@ -21,10 +19,27 @@
       <change beforePath="$PROJECT_DIR$/src/book/components/delete-book.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/book/components/delete-book.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/book/components/edit-book.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/book/components/edit-book.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/book/components/view-book-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/book/components/view-book-drawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TableWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TableWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/alert-dialog-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/alert-dialog-wrapper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dialog-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dialog-wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/drawer-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/drawer-wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/primary-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/primary-button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/secondary-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/secondary-button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/select-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/select-wrapper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/text-input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text-input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/alert-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/alert-dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/avatar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/drawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/select.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/utils.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/request.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/components/nav-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/nav-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/utils/stroge-util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils/stroge-util.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/components/delete-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/components/delete-user.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/components/edit-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/components/edit-user.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/components/view-user-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/components/view-user-drawer.tsx" afterDir="false" />
@@ -106,7 +121,14 @@
       <workItem from="1732770069930" duration="9146000" />
       <workItem from="1732793706057" duration="2656000" />
       <workItem from="1732970676283" duration="3945000" />
-      <workItem from="1733108309411" duration="452000" />
+      <workItem from="1733108309411" duration="539000" />
+      <workItem from="1733110768985" duration="10000" />
+      <workItem from="1733407410888" duration="617000" />
+      <workItem from="1733446775884" duration="29000" />
+      <workItem from="1733842044368" duration="1933000" />
+      <workItem from="1735798296787" duration="1266000" />
+      <workItem from="1735989427634" duration="630000" />
+      <workItem from="1736146373952" duration="4369000" />
     </task>
     <servers />
   </component>
