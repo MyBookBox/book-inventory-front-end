@@ -66,23 +66,30 @@ const EditUser = ({
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    control,
-    formState: { errors },
-  } = useForm<SignupFormValues | UserEditFormValues>({
-    resolver: zodResolver(isEdit ? userEditSchema : signupSchema),
+  const signupForm = useForm<SignupFormValues>({
+    resolver: zodResolver(signupSchema),
     defaultValues: {
       id: user?.id || "",
       name: user?.name || "",
       email: user?.email || "",
       password: user?.password || "",
       role: user?.role?.[0] || "",
+    },
+  });
+
+  const editForm = useForm<UserEditFormValues>({
+    resolver: zodResolver(userEditSchema),
+    defaultValues: {
+      id: user?.id ? Number(user.id) : undefined,
+      name: user?.name || "",
+      email: user?.email || "",
+      role: user?.role?.[0] || "",
       status: user?.status || "",
     },
   });
+
+  // Use the appropriate form based on isEdit mode
+  const currentForm = isEdit ? editForm : signupForm;
 
   const roles = [
     { value: "Admin", label: "Admin" },
@@ -102,18 +109,28 @@ const EditUser = ({
       setIsLoading(true);
 
       if (isEdit) {
-        await handleUserEdit(data);
+        await handleUserEdit(data as UserEditFormValues);
       } else {
-        await handleUserCreate(data);
+        await handleUserCreate(data as SignupFormValues);
       }
 
-      reset({
-        id: "",
-        name: "",
-        email: "",
-        password: "",
-        role: "",
-      });
+      if (isEdit) {
+        editForm.reset({
+          id: undefined,
+          name: "",
+          email: "",
+          role: "",
+          status: "",
+        });
+      } else {
+        signupForm.reset({
+          id: "",
+          name: "",
+          email: "",
+          password: "",
+          role: "",
+        });
+      }
 
       handleCloseDialog();
     } catch (error: any) {
@@ -139,7 +156,6 @@ const EditUser = ({
         />
       )}
       <DialogWrapper
-        trigger={<></>}
         title={isEdit ? "Update User Details" : "Create a New User"}
         description={
           isEdit
@@ -154,16 +170,16 @@ const EditUser = ({
           <TextInput
             label="Name"
             placeholder="Enter name"
-            error={errors.name?.message}
-            {...register("name")}
+            error={isEdit ? editForm.formState.errors.name?.message : signupForm.formState.errors.name?.message}
+            {...(isEdit ? editForm.register("name") : signupForm.register("name"))}
           />
           {!isEdit && (
             <TextInput
               label="Email"
               placeholder="Enter email"
               wrapperStyles="my-4"
-              error={errors?.email?.message}
-              {...register("email")}
+              error={signupForm.formState.errors?.email?.message}
+              {...signupForm.register("email")}
             />
           )}
           {!isEdit && (
@@ -172,35 +188,52 @@ const EditUser = ({
               type="password"
               placeholder="Enter password"
               wrapperStyles="my-4"
-              error={errors?.password?.message}
-              {...register("password")}
+              error={signupForm.formState.errors?.password?.message}
+              {...signupForm.register("password")}
             />
           )}
-          <Controller
-            name="role"
-            control={control}
-            render={({ field }) => (
-              <SelectWrapper
-                label="Role"
-                options={roles}
-                placeholder="Select user role"
-                wrapperStyles="my-4"
-                error={errors.role?.message}
-                {...field}
-              />
-            )}
-          />
+          {isEdit ? (
+            <Controller
+              name="role"
+              control={editForm.control}
+              render={({ field }) => (
+                <SelectWrapper
+                  label="Role"
+                  options={roles}
+                  placeholder="Select user role"
+                  wrapperStyles="my-4"
+                  error={editForm.formState.errors.role?.message}
+                  {...field}
+                />
+              )}
+            />
+          ) : (
+            <Controller
+              name="role"
+              control={signupForm.control}
+              render={({ field }) => (
+                <SelectWrapper
+                  label="Role"
+                  options={roles}
+                  placeholder="Select user role"
+                  wrapperStyles="my-4"
+                  error={signupForm.formState.errors.role?.message}
+                  {...field}
+                />
+              )}
+            />
+          )}
           {isEdit && (
             <Controller
               name="status"
-              control={control}
+              control={editForm.control}
               render={({ field }) => (
                 <SelectWrapper
                   label="Status"
                   options={statusOptions}
                   placeholder="Select user status"
                   wrapperStyles="my-4"
-                  error={errors?.status?.message}
+                  error={editForm.formState.errors?.status?.message}
                   {...field}
                 />
               )}
@@ -212,7 +245,7 @@ const EditUser = ({
               icon={<FileCheck />}
               loading={isLoading}
               additionalStyles="mt-8 w-32"
-              onClick={handleSubmit(onSubmit)}
+              onClick={isEdit ? editForm.handleSubmit(onSubmit) : signupForm.handleSubmit(onSubmit)}
             />
           </div>
         </div>

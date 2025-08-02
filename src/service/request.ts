@@ -1,6 +1,6 @@
 import { getToken } from "../shared/utils/stroge-util";
 
-const baseUrl = "http://localhost:3000/api/v1/";
+const baseUrl = "https://nestjs-backend-nrvc.onrender.com/api/v1/";
 
 export const post = async (path, body) => {
   const url = `${baseUrl}${path}`;

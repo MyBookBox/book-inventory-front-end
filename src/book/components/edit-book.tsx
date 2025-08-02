@@ -133,7 +133,6 @@ const EditBook = ({
       <DialogWrapper
         isOpen={isDialogOpen}
         onClose={handleCloseDialog}
-        trigger={<div></div>}
         title={isEdit ? "Update Book Details" : "Create a New Book"}
         description={
           isEdit

@@ -12,6 +12,8 @@ interface Props {
   placeholder?: string;
   icon?: React.ReactNode;
   error?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TextInput = forwardRef<HTMLInputElement, Props>(
@@ -25,6 +27,8 @@ const TextInput = forwardRef<HTMLInputElement, Props>(
       placeholder,
       icon,
       error,
+      value,
+      onChange,
       ...rest
     },
     ref
@@ -50,7 +54,9 @@ const TextInput = forwardRef<HTMLInputElement, Props>(
             )}
             placeholder={placeholder}
             disabled={disabled}
-            {...rest} // Spread other props (like `onChange`)
+            value={value}
+            onChange={onChange}
+            {...rest} // Spread other props
           />
           {isPasswordType && (
             <button
